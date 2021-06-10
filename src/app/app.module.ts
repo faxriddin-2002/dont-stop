@@ -1,32 +1,51 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
+
 import { AboutMeComponent } from './about-me/about-me.component';
-import { MyAblityComponent } from './my-ablity/my-ablity.component';
 import { AbouteMyLifeComponent } from './aboute-my-life/aboute-my-life.component';
+import { AppRoutingModule } from './app-routing.module';
 import { ContacMeComponent } from './contac-me/contac-me.component';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { LeftNawbarComponent } from './left-nawbar/left-nawbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MyAblityComponent } from './my-ablity/my-ablity.component'
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FooterComponent } from './footer/footer.component'; 
+const routs: Routes = [
+  {path: '', component: HomeComponent},
+  {path: "About", component: AboutMeComponent},
+  {path: 'About-my-life', component: AbouteMyLifeComponent},
+  {path: 'contact-me', component: ContacMeComponent},
+  {path: 'my-ablity', component: MyAblityComponent},
+  {path: "**", component: NotFoundComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
     AboutMeComponent,
-    MyAblityComponent,
     AbouteMyLifeComponent,
     ContacMeComponent,
-    LeftNawbarComponent
+    HomeComponent,
+    LeftNawbarComponent,
+    MyAblityComponent,
+    NotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(routs),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+function rout(rout: any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+  throw new Error('Function not implemented.');
+}
+
